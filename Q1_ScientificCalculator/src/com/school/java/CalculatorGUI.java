@@ -13,6 +13,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import java.awt.SystemColor;
+import javax.swing.JFormattedTextField;
 
 
 public class CalculatorGUI extends JFrame {
@@ -24,6 +25,7 @@ public class CalculatorGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtEquation;
 	private JTextField txtCurrentResult;
+	private JFormattedTextField formattedTextField;
 
 	/**
 	 * Launch the application.
@@ -75,6 +77,9 @@ public class CalculatorGUI extends JFrame {
 		pnlCommands.setBounds(5, 82, 424, 221);
 		contentPane.add(pnlCommands);
 		pnlCommands.setLayout(new BoxLayout(pnlCommands, BoxLayout.X_AXIS));
+		
+		formattedTextField = new JFormattedTextField();
+		pnlCommands.add(formattedTextField);
 	
 	}
 
