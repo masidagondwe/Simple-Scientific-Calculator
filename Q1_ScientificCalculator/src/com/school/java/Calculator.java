@@ -223,23 +223,64 @@ public class Calculator extends JFrame implements ActionListener{
         } 
         else if (s.charAt(0) == '=') { 
   
-            double te; 
-  
+            double result = 0; 
+
             // store the value in 1st 
-            if (s1.equals("+")) 
+            switch (s1) {
+            	case "+":
+            		result = (Double.parseDouble(s0) + Double.parseDouble(s2));
+            		break;
+            	case "-":
+            		result = (Double.parseDouble(s0) - Double.parseDouble(s2));
+            		break;
+            	case "/":
+            		result = (Double.parseDouble(s0) / Double.parseDouble(s2)); 
+            		break;
+            	case "*":
+            		result = (Double.parseDouble(s0) * Double.parseDouble(s2));
+            		break;
+            	case "^":
+            		result = (Math.pow(Double.parseDouble(s0), Double.parseDouble(s2)));
+            		break;
+            	case "√":	
+            		result = (Math.sqrt(Double.parseDouble(s2)));//?(Math.sqrt(result));
+            		break;
+            	case "cos":	
+            		result = (Math.cos((Double.parseDouble(s2))));//?(Math.cos(result));
+            		break;	
+            	case "sin":	
+            		result = (Math.sin((Double.parseDouble(s2))));//?(Math.cos(result));
+            		break;
+            	case "tan":	
+            		result = (Math.tan((Double.parseDouble(s2))));//?(Math.cos(result));
+            		break;
+            	case "π":	
+            		result = Math.PI;
+            		break;
+            	case "e":	
+            		result = Math.E;
+            		break;
+            	case "mod":	
+            		result = (Double.parseDouble(s0) % Double.parseDouble(s2));
+            		break;	
+            }
+         
+            /*if (s1.equals("+")) 
                 te = (Double.parseDouble(s0) + Double.parseDouble(s2)); 
             else if (s1.equals("-")) 
                 te = (Double.parseDouble(s0) - Double.parseDouble(s2)); 
             else if (s1.equals("/")) 
                 te = (Double.parseDouble(s0) / Double.parseDouble(s2)); 
-            else
+            else if (s1.equals("*")) 
                 te = (Double.parseDouble(s0) * Double.parseDouble(s2)); 
+            else if (s1.equals("^")) 
+            	te = (Double.parseDouble(s0) * Double.parseDouble(s2));*/
   
             // set the value of text 
-            txtF.setText(s0 + s1 + s2 + "=" + te); 
+            txtF.setText(s0 + s1 + s2 + "=" + result); 
   
             // convert it to string 
-            s0 = Double.toString(te); 
+            s0 = Double.toString(result); 
   
             s1 = s2 = ""; 
         } 
